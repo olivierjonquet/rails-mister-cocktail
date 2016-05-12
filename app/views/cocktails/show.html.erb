@@ -1,0 +1,19 @@
+<% content_for(:title) do %>
+  <%= @cocktail.name %> is chez Olivier
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1><%= @cocktail.name %></h1>
+      <%= link_to "Back", cocktails_path, class: "btn btn-primary" %>
+      <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) , class: "btn btn-primary" %>
+
+        <% @cocktail.doses.each do |dose|%>
+          <p><%= dose.description%> </p>
+          <p><%= dose.ingredient.name %> </p>
+          <p><%= link_to "Delete", cocktail_dose_path(@cocktail, dose) , method: :delete, class: "btn btn-primary" %></p>
+        <% end %>
+    </div>
+  </div>
+</div>
