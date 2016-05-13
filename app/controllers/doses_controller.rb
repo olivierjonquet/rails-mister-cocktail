@@ -25,6 +25,7 @@ before_action :set_cocktail, only: [ :new, :create, :destroy ]
   def dose_params
     params.require(:dose).permit(:description)
   end
+
   def set_cocktail
     @cocktail = Cocktail.find(params[:cocktail_id])
   end
