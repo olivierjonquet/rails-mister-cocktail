@@ -5,6 +5,9 @@ ruby '2.3.0'
 gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
 gem 'figaro'
+gem 'cloudinary'
+gem 'carrierwave'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

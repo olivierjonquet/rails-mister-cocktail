@@ -5,17 +5,24 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h1><%= @cocktail.name %></h1>
+    <div class="class card text-center">
+      <div class="class card-header" style="background-image: url('<%= cl_image_path @cocktail.photo %>')">
+      </div>
+      <div class="class card-body">
+        <%= @cocktail.name %>
+      </div>
+    </div>
+
       <%= link_to "Back", cocktails_path, class: "btn btn-primary" %>
         <% @cocktail.doses.each do |dose|%>
           <p><%= dose.description%> </p>
           <p><%= dose.ingredient.name %> </p>
           <p><%= link_to "Delete", cocktail_dose_path(@cocktail, dose) , method: :delete, class: "btn btn-primary" %></p>
-
         <% end %>
     </div>
   </div>
 </div>
+
 
 <div class="container">
   <div class="row">

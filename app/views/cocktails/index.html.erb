@@ -5,24 +5,26 @@
 <%= render 'shared/banner' %>
 
 <div class="wrapper">
-<div class="container">
+  <div class="container">
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="class card text-center">
+            <% if !cocktail.photo.url.nil? %>
+              <div class="class card-header" style="background-image: url('<%= cl_image_path cocktail.photo %>')"  >
+              </div>
+            <% else %>
+              <div class="class card-header" style="background-image: url('http://www.seriouseats.com/images/2014/11/20141104-cocktail-party-old-fashioneds-holiday-vicky-wasik-3.jpg')">
+              </div>
+            <% end %>
+            <div class="class card-body">
+              <%= link_to cocktail.name, cocktail_path(cocktail) %>
+            </div>
 
-  <div class="row">
-    <div class="col-xs-12">
-      <h1>List des cocktails</h1>
-      <%= link_to "Add a new cocktail", new_cocktail_path %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
+</div>
 
-  <div class="row">
-    <% @cocktails.each do |cocktail| %>
-      <div class="col-xs-12 col-sm-4">
-         <h3>
-           <%= cocktail.name %>
-        </h3>
-        <%= link_to "See details", cocktail_path(cocktail), class: "btn btn-primary" %>
-      </div>
-    <% end %>
-  </div>
-</div>
-</div>
