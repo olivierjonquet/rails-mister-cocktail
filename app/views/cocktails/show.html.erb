@@ -15,9 +15,18 @@
 
       <%= link_to "Back", cocktails_path, class: "btn btn-primary" %>
         <% @cocktail.doses.each do |dose|%>
-          <p><%= dose.description%> </p>
-          <p><%= dose.ingredient.name %> </p>
-          <p><%= link_to "Delete", cocktail_dose_path(@cocktail, dose) , method: :delete, class: "btn btn-primary" %></p>
+          <p>
+            <%= dose.description%> : <%= dose.ingredient.name %> <%= link_to "<i class='fa fa-trash'></i>".html_safe, cocktail_dose_path(@cocktail, dose), method: :delete,  data: {
+                                                                            confirm: 'Are you sure you want to delete?',
+                                                                            :'confirm-button-text' => 'yes, delete',
+                                                                            :'cancel-button-text' => 'No way',
+                                                                            :'confirm-button-color' => '#66CD00',
+                                                                            :'sweet-alert-type' => 'info',
+                                                                            text: 'This is a subtitle',
+                                                                            :'image-url' => '/pic.png'
+                                                                          }
+            %>
+          </p>
         <% end %>
     </div>
   </div>

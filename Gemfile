@@ -38,6 +38,11 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+source "https://rails-assets.org" do
+  gem 'rails-assets-sweetalert'
+end
+gem 'sweet-alert-confirm'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
